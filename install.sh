@@ -2,6 +2,7 @@
 # 한우 체중 측정 — 현장 Raspberry Pi 최초 설치 (sudo 불필요)
 #
 #   curl -fsSLO https://raw.githubusercontent.com/BlessingQ/weight_mesuring-release/main/install.sh && bash install.sh
+#   bash install.sh --hub-agent ~/iontec-agent-0.1.0.tar.gz     # IoT 허브 에이전트도 함께 (관리 서버 연결)
 #
 # 최신 릴리스 manifest 확인 → 패키지 다운로드 → SHA-256 + 아이온텍 서명(ed25519) 검증 → ~/iontec 구조 설치
 # 설치 후에는 업데이트 에이전트가 1시간마다 새 버전을 확인한다 (화면 [새 버전 — 눌러서 업데이트]).
@@ -23,6 +24,7 @@ if [ "$(timedatectl show -p NTPSynchronized --value 2>/dev/null || echo yes)" !=
   echo "※ 시간 동기화 전입니다 — HTTPS 인증서 확인이 실패할 수 있습니다. 네트워크 연결 후 잠시 뒤 다시 실행하세요."
 fi
 
+export IONTEC_INSTALL_CWD="$PWD"                    # 옵션의 상대 경로 기준 (아래에서 작업 폴더로 이동)
 WORK="$(mktemp -d)"
 trap 'rm -rf "$WORK"' EXIT
 cd "$WORK"
@@ -62,7 +64,7 @@ echo "   SHA-256·서명 확인"
 
 mkdir pkg
 tar -xzf "$NAME" -C pkg
-bash pkg/install.sh
+bash pkg/install.sh "$@"
 
 echo
 echo "== 다음 단계 (최초 1회, 비밀번호 필요): 한글 폰트·NTP 시간 동기화 설정"
