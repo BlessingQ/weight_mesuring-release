@@ -10,6 +10,9 @@ curl -fsSLO https://raw.githubusercontent.com/BlessingQ/weight_mesuring-release/
 sudo ~/iontec/weight/current/install_root.sh && sudo reboot     # 최초 1회 (한글 폰트·NTP)
 ```
 
+관리 서버 연결용 IoT 허브 에이전트 패키지(`iontec-agent-<버전>.tar.gz`, 아이온텍 제공)를 홈 폴더(`~/`)에 먼저 두면
+함께 설치합니다 (`bash install.sh --hub-agent <경로>` 로 지정해도 됨). 설치 후 점검: `~/iontec/weight/current/scripts/field_check.sh`
+
 설치 스크립트는 최신 릴리스의 패키지를 받아 **SHA-256 과 아이온텍 서명(ed25519)을 확인한 뒤** 설치합니다.
 서명이 맞지 않으면 설치하지 않습니다. 검증용 공개키: [`release_pubkey.pem`](release_pubkey.pem)
 
