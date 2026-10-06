@@ -2,7 +2,6 @@
 # 한우 체중 측정 — 현장 Raspberry Pi 최초 설치 (sudo 불필요)
 #
 #   curl -fsSLO https://raw.githubusercontent.com/BlessingQ/weight_mesuring-release/main/install.sh && bash install.sh
-#   bash install.sh --hub-agent ~/iontec-agent-0.1.0.tar.gz     # IoT 허브 에이전트도 함께 (관리 서버 연결)
 #
 # 최신 릴리스 manifest 확인 → 패키지 다운로드 → SHA-256 + 아이온텍 서명(ed25519) 검증 → ~/iontec 구조 설치
 # 설치 후에는 업데이트 에이전트가 1시간마다 새 버전을 확인한다 (화면 [새 버전 — 눌러서 업데이트]).
