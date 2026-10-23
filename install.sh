@@ -66,5 +66,5 @@ tar -xzf "$NAME" -C pkg
 bash pkg/install.sh "$@"
 
 echo
-echo "== 다음 단계 (최초 1회, 비밀번호 필요): 한글 폰트·NTP 시간 동기화 설정"
-echo "   sudo ~/iontec/weight/current/install_root.sh && sudo reboot"
+echo "== 다음 단계 (최초 1회, 비밀번호 필요): 한글 폰트·NTP · TeamViewer · 화상 키보드 → 재부팅"
+echo "   sudo bash ~/iontec/weight/current/scripts/setup_device.sh"
