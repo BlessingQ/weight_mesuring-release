@@ -7,8 +7,10 @@
 
 ```bash
 curl -fsSLO https://raw.githubusercontent.com/BlessingQ/weight_mesuring-release/main/install.sh && bash install.sh
-sudo ~/iontec/weight/current/install_root.sh && sudo reboot     # 최초 1회 (한글 폰트·NTP)
+sudo bash ~/iontec/weight/current/scripts/setup_device.sh      # 최초 1회 (한글 폰트·NTP·TeamViewer·화상 키보드 → 재부팅)
 ```
+
+TeamViewer 무인 접속은 회사 계정 배정(`--assign <토큰>`) 또는 비밀번호(`--password`)를 위 명령 뒤에 붙여 지정합니다.
 
 아이온텍 관리 서버 연결은 프로그램에 내장되어 있습니다 (처음 실행하면 장비 ID 를 만들고 대시보드에 '승인 대기'로 나타남).
 설치 후 점검: `~/iontec/weight/current/scripts/field_check.sh`
